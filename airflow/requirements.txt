@@ -1,0 +1,7 @@
+apache-airflow
+pyspark
+pandas
+pandas-gbq
+requests
+google-cloud-storage
+google-cloud-bigquery
