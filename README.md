@@ -17,7 +17,8 @@
 2. Look for `Miniconda3 Linux 64-bit` then right click and copy link address, so that we can install it on the VM.
 3. Back to the VM terminal, enter `wget <link from previous step>`. It should download an `.sh` installer that you can check using `ls`.
 4. Enter `bash <miniconda .sh installer filename>` to install miniconda. Follow and complete the instructions.
-5. Feel free to delete the installer afterwards.
+5. Enter `source .bashrc` to restart bashrc and apply conda changes.
+6. Feel free to delete the installer afterwards.
 
 ## setup ssh connection
 1. Generate an ssh key. Feel free to check the [instructions](https://cloud.google.com/compute/docs/connect/create-ssh-keys#linux-and-macos) from Google Cloud.
@@ -53,7 +54,7 @@
 2. Enter `docker run hello-world` to check if docker has correct permissions already. If you encounter a `permission denied` error, follow the fix from [here](https://github.com/sindresorhus/guides/blob/main/docker-without-sudo.md). If you try `docker run hello-world` again, it should now run without an error.
 
 ## initialize the database and run Airflow
-1. enter `docker compose airflow-init` (or in my case, since I installed `docker-compose` [an older `docker compose version`], `docker-compose airflow-init`). Wait for the initialization to complete.
-2. Enter `docker compose up` (or `docker-compose up`) to run Airflow.
-3. Enter `docker ps` and check if
+1. enter `docker compose up airflow-init` (or in my case, since I installed `docker-compose` [an older `docker compose version`], `docker-compose up airflow-init`). Wait for the initialization to complete.
+2. Enter `docker compose up -d` (or `docker-compose up -d`) to run Airflow.
+3. Enter `docker ps` and check if the docker images are up and running.
 4. Feel free to read the rest of the Airflow documentation.

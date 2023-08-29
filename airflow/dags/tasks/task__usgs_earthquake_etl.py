@@ -7,15 +7,14 @@ from airflow.decorators import task
 from google.cloud import storage, bigquery
 from io import StringIO
 from google.oauth2 import service_account
-import pandas_gbq
 
 
 
 
 params = {
-    'service_account_creds': './config/usgs-earthquake-credentials.json',
-    'project_id': 'kevinesg-usgs-earthquake',
-    'bucket_name': 'kevinesg-earthquake-bucket',
+    'service_account_creds': './config/kevinesg-production-credentials.json',
+    'project_id': 'kevinesg-production',
+    'bucket_name': 'kevinesg-usgs-earthquake',
     'raw_folder_name': 'raw',
     'transformed_folder_name': 'transformed',
     'dataset': 'usgs',
