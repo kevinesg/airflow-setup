@@ -1,3 +1,5 @@
+#### * Instructions below assumes you are using a Linux distribution (some steps will be different for Windows or Mac users).
+
 # multipass VM initial setup
 
 ## install multipass
@@ -49,12 +51,16 @@
 2. Go to [this page of the Airflow documentation](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) (or look it up in case the link does not work anymore), look for "Fetching docker-compose.yaml" section, and copy the `curl` command. In my case, it is `curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.7.0/docker-compose.yaml'`. This will download the docker-compose.yaml for the latest Airflow version. In my case, the latest version is 2.7.0. The next steps are just following the instructions in the documentation.
 4. Enter `mkdir -p ./dags ./logs ./plugins ./config` and `echo -e "AIRFLOW_UID=$(id -u)" > .env`. This will create the directories expected by Airflow, with proper permissions.
 
-## install docker compose
-1. If you haven't already, install `docker compose` using your package manager. For example, in Debian-based distributions, you can install `docker-compose` package from the apt repository using `sudo apt install docker-compose`.
-2. Enter `docker run hello-world` to check if docker has correct permissions already. If you encounter a `permission denied` error, follow the fix from [here](https://github.com/sindresorhus/guides/blob/main/docker-without-sudo.md). If you try `docker run hello-world` again, it should now run without an error.
-
 ## initialize the database and run Airflow
 1. enter `docker compose up airflow-init` (or in my case, since I installed `docker-compose` [an older `docker compose version`], `docker-compose up airflow-init`). Wait for the initialization to complete.
 2. Enter `docker compose up -d` (or `docker-compose up -d`) to run Airflow.
 3. Enter `docker ps` and check if the docker images are up and running.
 4. Feel free to read the rest of the Airflow documentation.
+
+
+#
+I did the steps above to initialize this this repository. Everything else are files I manually created.
+- I extended the default `docker-compose.yaml` from Airflow by creating a `requirements.txt` that contains the needed Python libraries, as well as a `Dockerfile` basically for installing the packages from `requirements.txt`. I edited `docker-compose.yaml` to be able extend it. For more detailed information, feel free to check the Airflow docs.
+- `airflow/config/` expects two files: a GCP service account JSON file and a mediastack API key in a txt file.
+- Airflow expects the DAGs to be inside the `dags/` directory.
+- The DAGs in this repository use TaskFlow API instead of Operators, and I placed the task functions inside `dags/tasks/`.
