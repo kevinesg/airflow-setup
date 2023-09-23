@@ -1,0 +1,42 @@
+[0m20:37:20.301002 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7a67079510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7a677af490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7a6707bd10>]}
+
+
+============================== 20:37:20.304858 | 32a53e9f-5bb1-466d-aa87-d2fd826f0951 ==============================
+[0m20:37:20.304858 [info ] [MainThread]: Running with dbt=1.6.2
+[0m20:37:20.305266 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/home/ubuntu/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt init finance', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:37:20.306093 [debug] [MainThread]: Starter project path: /home/ubuntu/miniconda3/envs/dbt-env/lib/python3.11/site-packages/dbt/include/starter_project
+[0m20:37:20.308422 [info ] [MainThread]: 
+Your new dbt project "finance" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:37:20.308709 [info ] [MainThread]: Setting up your profile.
+[0m20:37:59.299959 [info ] [MainThread]: Profile finance written to /home/ubuntu/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m20:37:59.301431 [debug] [MainThread]: Command `dbt init` succeeded at 20:37:59.301247 after 39.01 seconds
+[0m20:37:59.301933 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7a67074b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7a670801d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7a6b44a110>]}
+[0m20:37:59.302761 [debug] [MainThread]: Flushing usage events
+[0m22:17:54.717940 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fed7b983810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fed7b9814d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fed7b981410>]}
+
+
+============================== 22:17:54.720251 | a9a34baa-8468-419e-8890-410d890a4c7e ==============================
+[0m22:17:54.720251 [info ] [MainThread]: Running with dbt=1.6.2
+[0m22:17:54.720644 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/ubuntu/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt docs serve --port 8081', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:17:54.720971 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/ubuntu/airflow-setup/dbt-projects/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m22:17:54.721422 [debug] [MainThread]: Command `dbt docs serve` failed at 22:17:54.721344 after 0.01 seconds
+[0m22:17:54.721684 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fed7b981a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fed7cfff210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fed7b97cc90>]}
+[0m22:17:54.721937 [debug] [MainThread]: Flushing usage events

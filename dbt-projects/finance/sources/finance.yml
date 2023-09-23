@@ -1,0 +1,46 @@
+
+version: 2
+
+sources:
+  - name: finance
+    database: kevinesg-production
+    schema: finance
+    loader: finance_etl
+    
+    tables:
+      - name: raw_data
+        description: "fact table; raw data of all financial transactions"
+        freshness:
+          warn_after:
+            count: 8
+            period: hour
+          error_after:
+            count: 16
+            period: hour
+
+        columns:
+            - name: year
+              tests:
+                - not_null
+
+            - name: month
+              tests:
+                - not_null
+
+            - name: day
+              tests:
+                - not_null
+
+            - name: item
+
+            - name: type
+              tests:
+                - not_null
+
+            - name: cost
+
+            - name: to
+
+            - name: store
+
+            - name: source

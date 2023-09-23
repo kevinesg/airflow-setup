@@ -4,15 +4,15 @@ from airflow.decorators import dag
 
 
 
-DATASET = 'USGS_earthquake'
+DATASET = 'NYC_OpenData_FHV'
 DAG_NAME = f'etl__{DATASET}'
-DAG_DESCRIPTION = 'extracts data from USGS API to create US earthquake database'
+DAG_DESCRIPTION = 'extracts data from NYC OpenData API to create NYC FHV database'
 DAG_OWNER = 'kevinesg'
 EMAIL = ['kevinlloydesguerra@gmail.com']
-START_DATE = datetime(2023, 8, 22, 1)
-CRON_SCHEDULE = '0 1 * * *'
-RETRY_DELAY = timedelta(minutes=2)
-RETRIES = 5
+START_DATE = datetime(2023, 9, 16, 0)
+CRON_SCHEDULE = '0 0 * * *'
+RETRY_DELAY = timedelta(minutes=10)
+RETRIES = 2
 MAX_ACTIVE_RUNS = 1
 CONCURRENCY = 1
 
@@ -27,7 +27,7 @@ default_args = {
 }
 
 
-from tasks.task__usgs_earthquake_etl import api_to_gcs, transform_raw_data, ingest_to_gbq
+from tasks.task__nyc_opendata_fhv_etl import api_to_s3, transform_raw_data, ingest_to_gbq
 @dag(
     dag_id=DAG_NAME,
     start_date=START_DATE,
@@ -37,17 +37,16 @@ from tasks.task__usgs_earthquake_etl import api_to_gcs, transform_raw_data, inge
     catchup=False,
     default_args=default_args
 )
-def earthquake_etl() -> None:
-    
-    api_to_gcs_task = api_to_gcs()
+def fhv_etl() -> None:
+    api_to_s3_task = api_to_s3()
     transform_raw_data_task = transform_raw_data()
     ingest_to_gbq_task = ingest_to_gbq()
-    
-    api_to_gcs_task >> transform_raw_data_task >> ingest_to_gbq_task
-    
+
+    api_to_s3_task >> transform_raw_data_task >>ingest_to_gbq_task
+
     return
 
 
 
 
-earthquake_etl()
+fhv_etl()
