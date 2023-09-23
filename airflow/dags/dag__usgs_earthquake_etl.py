@@ -34,16 +34,17 @@ from tasks.task__usgs_earthquake_etl import api_to_gcs, transform_raw_data, inge
     schedule_interval=CRON_SCHEDULE,
     max_active_runs=MAX_ACTIVE_RUNS,
     concurrency=CONCURRENCY,
+    catchup=False,
     default_args=default_args
 )
 def earthquake_etl() -> None:
+    
     api_to_gcs_task = api_to_gcs()
     transform_raw_data_task = transform_raw_data()
     ingest_to_gbq_task = ingest_to_gbq()
-
-    transform_raw_data_task.set_upstream(api_to_gcs_task)
-    ingest_to_gbq_task.set_upstream(transform_raw_data_task)
-
+    
+    api_to_gcs_task >> transform_raw_data_task >> ingest_to_gbq_task
+    
     return
 
 

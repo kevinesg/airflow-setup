@@ -34,13 +34,14 @@ from tasks.task__finance_etl import gsheet_to_gcs, ingest_to_gbq
     schedule_interval=CRON_SCHEDULE,
     max_active_runs=MAX_ACTIVE_RUNS,
     concurrency=CONCURRENCY,
+    catchup=False,
     default_args=default_args
 )
 def finance_etl() -> None:
     gsheet_to_gcs_task = gsheet_to_gcs()
     ingest_to_gbq_task = ingest_to_gbq()
 
-    ingest_to_gbq_task.set_upstream(gsheet_to_gcs_task)
+    gsheet_to_gcs_task >> ingest_to_gbq_task
 
     return
 
