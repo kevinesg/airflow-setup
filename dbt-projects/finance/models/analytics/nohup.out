@@ -1,0 +1,11 @@
+[0m15:22:51  Running with dbt=1.6.2
+[0m15:22:51  Registered adapter: bigquery=1.6.4
+[0m15:22:51  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.finance.example
+[0m15:22:51  Found 3 models, 4 tests, 1 source, 0 exposures, 0 metrics, 390 macros, 0 groups, 0 semantic models
+[0m15:22:51  
+[0m15:22:52  Concurrency: 4 threads (target='dev')
+[0m15:22:52  
+[0m15:22:52  Building catalog
+[0m15:22:56  Catalog written to /home/ubuntu/airflow-setup/dbt-projects/finance/target/catalog.json

@@ -1,0 +1,29 @@
+
+version: 2
+
+models:
+  - name: binary_type
+    description: "list of income and expenses sources"
+    docs:
+      show: true
+    columns:
+      - name: type
+        description: "finance.raw_data.type"
+      - name: binary_type
+        description: ""
+
+  - name: monthly_pnl
+    description: "monthly profit and loss summary"
+    docs:
+      show: true
+    columns:
+      - name: year
+        description: "year"
+      - name: month
+        description: "month number"
+      - name: expenses
+        description: "amount in PHP"
+      - name: income
+        description: "amount in PHP"
+      - name: savings
+        description: "amount in PHP"
